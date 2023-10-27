@@ -2,7 +2,9 @@ package LeetCode75;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockitoAnnotations;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -45,5 +47,10 @@ class ArrayStringTest {
         String output = arrayString.gcdOfStrings("ABABABAB", "ABAB");
         assertEquals("ABAB",output);
     }
-    
+
+    @Test
+    void kidsWithCandies() {
+        List<Boolean> output = arrayString.kidsWithCandies(new int[]{2,3,5,1,3}, 3);
+        assertEquals(Arrays.asList(true, true, true, false, true), output);
+    }
 }

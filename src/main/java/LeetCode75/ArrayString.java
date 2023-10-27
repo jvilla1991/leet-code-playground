@@ -1,5 +1,8 @@
 package LeetCode75;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ArrayString {
 
     /** <a href="https://leetcode.com/problems/merge-strings-alternately/description/?envType=study-plan-v2&envId=leetcode-75">...</a>
@@ -55,5 +58,28 @@ public class ArrayString {
             }
         }
         return "";
+    }
+
+    /**<a href="https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/description/?envType=study-plan-v2&envId=leetcode-75">...</a>
+     * There are n kids with candies. You are given an integer array candies, where each candies[i] represents the number of candies the ith kid has, and an integer extraCandies, denoting the number of extra candies that you have.
+     * Return a boolean array result of length n, where result[i] is true if, after giving the ith kid all the extraCandies, they will have the greatest number of candies among all the kids, or false otherwise.
+     * Note that multiple kids can have the greatest number of candies.
+     * @param candies Integer Array of how many candies each kid has, where each element is a kid
+     * @param extraCandies how many extra candies are available
+     * @return A list of booleans that indicate weather a kid, when given the extra candies,
+     * would exceed the kids with the highest amount of candies prior to run time.
+     */
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int greatestNumber = 0;
+        for (int candy:   candies) {
+            if (candy > greatestNumber) {
+                greatestNumber = candy;
+            }
+        }
+        List<Boolean> boolList = new ArrayList<>();
+        for (int candy : candies) {
+            boolList.add(candy + extraCandies >= greatestNumber);
+        }
+        return boolList;
     }
 }
